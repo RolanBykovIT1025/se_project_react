@@ -3,7 +3,7 @@ import "./itemCard.css";
 function ItemCard({ item, onCardClick }) {
 
     const handleCardClick = () => {
-        oncardClick(item);
+        onCardClick(item);
     }
 
   return (

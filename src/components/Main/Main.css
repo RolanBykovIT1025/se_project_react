@@ -12,3 +12,8 @@
     font-size: 20px;
     line-height: 100%;
 }
+
+main {
+    flex: 1;
+    min-height: 85vh;
+}

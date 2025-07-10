@@ -1,6 +1,6 @@
-import "./itemModal.css";
+import "./ItemModal.css";
 
-function itemModal({ activeModal, onClose, card }) {
+function ItemModal({ activeModal, onClose, card }) {
   return (
     <div className={`modal ${activeModal === "preview" && "modal__opened"}`}>
       <div className="modal__content modal__content_type_image">
@@ -16,4 +16,4 @@ function itemModal({ activeModal, onClose, card }) {
   );
 }
 
-export default itemModal;
+export default ItemModal;

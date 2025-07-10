@@ -1,1 +1,7 @@
 @import url(./vendor/normalize.css);
+@import url(./Footer/Footer.css);
+@import url(./ItemCard/ItemCard.css);
+@import url(./ItemModal/ItemModal.css);
+@import url(./Main/Main.css);
+@import url(./Header/Header.css);
+@import url(./ModalWithFrom/ModalWithFrom.css);

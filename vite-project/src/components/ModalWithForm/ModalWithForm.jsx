@@ -18,7 +18,6 @@ function ModalWithForm({
           type="button"
           className="modal__close"
         >
-          CLOSE
         </button>
         <form className="modal__form">
           {children}

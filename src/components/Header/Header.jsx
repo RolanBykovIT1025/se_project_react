@@ -9,7 +9,7 @@ const currentDate = new Date().toLocaleString('default', { month: 'long', day: '
   return (
     <header className="header">
       <div className="header__logo-content">
-      <img className="header__logo" src={logo} />
+      <img className="header__logo" alt="WTWR logo" src={logo} />
       <p className="header__date-and-location">{currentDate}, {weatherData.city}
       </p>
       </div>

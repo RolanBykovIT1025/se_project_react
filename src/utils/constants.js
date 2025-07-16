@@ -6,18 +6,18 @@ export const weatherOptions = [
   },
   {
     day: true,
-    condition: "cloudy",
+    condition: "clouds",
     url: new URL("../assets/day/cloudy.svg", import.meta.url).href,
   },
   {
-    day: true,
+    day: false,
     condition: "clear",
     url: new URL("../assets/night/dark-clear.svg", import.meta.url).href,
   },
   {
-    day: true,
-    condition: "cloudy",
-    url: new URL("../assets/day/dark-cloudy.svg", import.meta.url).href,
+    day: false,
+    condition: "clouds",
+    url: new URL("../assets/night/dark-cloudy.svg", import.meta.url).href,
   },
 ]
 

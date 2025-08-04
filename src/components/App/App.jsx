@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import { coordinates, APIkey } from "../../utils/constants";
@@ -65,11 +66,15 @@ function App() {
       <div className="app">
         <div className="app__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-          <Main
+          <Routes>
+            <Route path="/" element={<Main
             weatherData={weatherData}
             handleCardClick={handleCardClick}
             clothingItems={clothingItems}
-          />
+          />} />
+            <Route path="/profile" element={<p>Profile</p>} />
+          </Routes>
+          
           <Footer />
         </div>
         <AddItemModal

@@ -7,11 +7,12 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
+import Profile from "../Profile/Profile";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 
-function App() {
+const App =() =>  {
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999, C: 999 },
@@ -72,7 +73,7 @@ function App() {
             handleCardClick={handleCardClick}
             clothingItems={clothingItems}
           />} />
-            <Route path="/profile" element={<p>Profile</p>} />
+            <Route path="/profile" element={<Profile onCardClick={handleCardClick} />} />
           </Routes>
           
           <Footer />

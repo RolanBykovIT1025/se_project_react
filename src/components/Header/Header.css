@@ -6,6 +6,11 @@
   width: 100%;
 }
 
+.header__link {
+  text-decoration: none;
+  color: black;
+}
+
 .header__logo {
     margin-right: 24px;
 }

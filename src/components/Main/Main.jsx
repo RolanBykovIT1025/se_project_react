@@ -3,7 +3,8 @@ import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import { defaultClothingItems } from "../../utils/constants";
 
-function Main({ weatherData, handleCardClick, clothingItems }) {
+const Main = ({ weatherData, handleCardClick, clothingItems }) => {
+  console.log(weatherData);
   return (
     <main>
       <WeatherCard weatherData={weatherData} />

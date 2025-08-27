@@ -8,7 +8,7 @@ function ClothesSection({ onCardClick }) {
     <div className="clothes-section">
         <div>
             <p>your items</p>
-            <button>+ Add New</button>
+            <button className="add__button">+ Add New</button>
             <ul className="clothes-section-items">
           {defaultClothingItems.map((item) => {
             return (<ItemCard key={item._id} item={item} 

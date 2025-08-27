@@ -9,6 +9,9 @@
 .header__link {
   text-decoration: none;
   color: black;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .header__logo {

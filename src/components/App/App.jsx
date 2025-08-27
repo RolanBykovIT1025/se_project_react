@@ -11,6 +11,7 @@ import Profile from "../Profile/Profile";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import { getItems } from "../../utils/api";
 
 const App =() =>  {
   const [weatherData, setWeatherData] = useState({
@@ -60,6 +61,14 @@ const App =() =>  {
       .catch(console.error);
   }, []);
 
+  useEffect(() => {
+    getItems().then((data) => {
+      console.log(data);
+      // set the clothing items
+    })
+    .catch(console.error);
+  }, []);
+
   return (
     <CurrentTemperatureUnitContext.Provider
       value={{ currentTemperatureUnit, handleToggleSwitchChange }}
@@ -68,7 +77,9 @@ const App =() =>  {
         <div className="app__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
           <Routes>
-            <Route path="/" element={<Main
+            <Route path="/" element={
+              // pass clothingItems as a prop
+              <Main
             weatherData={weatherData}
             handleCardClick={handleCardClick}
             clothingItems={clothingItems}

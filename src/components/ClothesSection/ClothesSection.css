@@ -1,0 +1,29 @@
+.add__button {
+  border: none;
+  opacity: 50%;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+}
+
+.clothes-section {
+  margin-right: 40px;
+}
+
+.clothes-section-items {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1015px;
+  height: 100%;
+  list-style: none;
+  gap: 20px;
+}
+
+.card {
+    
+}
+
+.card__image {
+  border: 1px solid grey;
+  border-radius: 10px;
+}

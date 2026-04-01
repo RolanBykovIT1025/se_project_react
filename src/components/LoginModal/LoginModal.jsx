@@ -1,0 +1,78 @@
+import { useState, useEffect } from "react";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+
+export default function LoginModal({
+  isOpen,
+  onClose,
+  onLoginModalSubmit,
+  onSecondButtonClick,
+}) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    if (isOpen) {
+      setEmail("");
+      setPassword("");
+    }
+  }, [isOpen]);
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onLoginModalSubmit({ email, password });
+  };
+
+  const switchModal = () => {
+    onSecondButtonClick();
+  };
+
+  return (
+    <ModalWithForm
+      title="Login"
+      buttonText="Login"
+      SecondButtonText={"or Register"}
+      isOpen={isOpen}
+      onClose={onClose}
+      onSubmit={handleSubmit}
+      switchModal={switchModal}
+      onSecondButtonClick={onSecondButtonClick}
+    >
+      <label htmlFor="login-email" className="modal__label">
+        Email*
+        <input
+          type="email"
+          name="email"
+          className="modal__input"
+          id="login-email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={handleEmailChange}
+          required
+        />
+      </label>
+      <label htmlFor="login-password" className="modal__label">
+        Password*
+      </label>
+      <input
+        type="password"
+        name="password"
+        className="modal__input"
+        id="login-password"
+        placeholder="Enter your password"
+        minLength={8}
+        maxLength={16}
+        value={password}
+        onChange={handlePasswordChange}
+        required
+      />
+    </ModalWithForm>
+  );
+}

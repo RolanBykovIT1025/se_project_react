@@ -15,6 +15,10 @@
   visibility: visible;
 }
 
+.modal__image {
+  max-width: 100%;
+}
+
 .modal__title {
   margin-bottom: 24px;
   font-weight: 700;
@@ -35,7 +39,7 @@
 }
 
 .modal__content {
-  background-color: #fff;
+  background-color: ;
   position: relative;
   padding: 28px 28px 36px;
   max-width: 496px;

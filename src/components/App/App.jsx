@@ -14,7 +14,7 @@ import {
 import { signin, signup, getUserData } from "../../utils/auth";
 
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-import CurrentUserContext from "../../contexts/CurrentUserContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 import "./App.css";
 import Header from "../Header/Header";
@@ -293,7 +293,7 @@ const App = () => {
           onRegisterModalSubmit={handleRegistration}
           activeModal={activeModal}
           onSecondaryButtonClick={onSecondaryButtonClick}
-          handleSignUpClick={onSecondaryButtonClick}
+          handleSignupClick={onSecondaryButtonClick}
         />
 
         <LoginModal
@@ -303,7 +303,7 @@ const App = () => {
           activeModal={activeModal}
           LoginClick={handleLoginClick}
           onSecondButtonClick={onSecondaryButtonClick}
-          handleSignUpClick={onSecondaryButtonClick}
+          handleSignupClick={onSecondaryButtonClick}
         />
 
         <EditProfileModal

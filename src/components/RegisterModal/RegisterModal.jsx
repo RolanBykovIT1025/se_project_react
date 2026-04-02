@@ -6,7 +6,7 @@ export default function RegisterModal({
   onClose,
   onRegisterModalSubmit,
   onSecondButtonClick,
-  handleSignUpClick,
+  handleSignupClick,
 }) {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -52,7 +52,7 @@ export default function RegisterModal({
       onClose={onClose}
       onSubmit={handleSubmit}
       secondButtonText="Already have an account? Log in"
-      handleSignUpClick={handleSignUpClick}
+      handleSignupClick={handleSignupClick}
     >
       <label htmlFor="register-email" className="modal__label">
         Email*

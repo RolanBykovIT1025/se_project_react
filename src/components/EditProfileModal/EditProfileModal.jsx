@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-import CurrentUserContext from "../../contexts/CurrentUserContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 export default function EditProfileModal({
   isOpen,

@@ -1,11 +1,31 @@
 .footer {
-    display: flex;
-  justify-content: space-between;
-  bottom: 0;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  background-color: #f2f2f2;
-  font-size: 16px;
+  width: 100%;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  margin: 0 40px;
+}
+
+.footer__content {
+  width: 1360px;
+  height: 20px;
+  margin: 85px 40px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Cabinet Grotesk Medium";
+  font-size: 16pxpx;
   line-height: 20px;
   font-weight: 500;
-  width: 100%;
+}
+
+.footer__content_name {
+  margin: 0;
+}
+
+.footer__content_year {
+  margin: 0;
 }

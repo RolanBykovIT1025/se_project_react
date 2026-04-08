@@ -5,28 +5,26 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 function ItemModal({
   activeModal,
   card,
-  onClose,
-  handledDeleteCard,
+  closeActiveModal,
   handleOverlay,
+  handleDeleteCard,
 }) {
   const currentUser = useContext(CurrentUserContext);
 
-  const isOwn = currentUser && card && card.owner === currentUser._id;
+  const isOwn = card.owner === currentUser._id;
 
   const deleteCardClick = () => {
-    if (card?._id) {
-      handledDeleteCard(card._id);
-    }
+    handleDeleteCard(card._id);
   };
 
   return (
     <div
       onClick={handleOverlay}
-      className={`modal ${activeModal === "preview" && "modal__opened"}`}
+      className={`modal ${activeModal === "preview" && "modal_open"}`}
     >
       <div className="modal__content modal__content_type_image">
         <button
-          onClick={onClose}
+          onClick={closeActiveModal}
           type="button"
           className="modal__close modal__close_item"
         ></button>
@@ -38,11 +36,11 @@ function ItemModal({
           </div>
           {isOwn && (
             <button
-              className="modal__delete"
-              onClick={deleteCardClick}
+              className="modal__delete-btn"
               type="button"
+              onClick={deleteCardClick}
             >
-              Delete Item
+              Delete item
             </button>
           )}
         </div>

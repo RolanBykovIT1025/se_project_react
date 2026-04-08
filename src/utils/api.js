@@ -1,70 +1,56 @@
-import { baseUrl } from "./constants.js";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wtwr.developer.li"
+    : "http://localhost:3001";
+import { getToken } from "./auth";
 
-export const handleServerResponse = (res) => {
+function checkRes(res) {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-};
+}
 
-export const getItems = () => {
-  return fetch(`${baseUrl}/items`, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }).then(handleServerResponse);
-};
+function getItems() {
+  return fetch(`${baseUrl}/items`).then(checkRes);
+}
 
-export const addItem = ({ name, imageUrl, weather }, token) => {
+function addItem({ name, weather, imageUrl }) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${getToken()}`,
     },
-    body: JSON.stringify({
-      name,
-      imageUrl,
-      weather,
-    }),
-  }).then(handleServerResponse);
-};
+    body: JSON.stringify({ name, weather, imageUrl }),
+  }).then(checkRes);
+}
 
-export const removeItem = (itemID, token) => {
-  return fetch(`${baseUrl}/items/${itemID}`, {
+function deleteCard(cardId) {
+  return fetch(`${baseUrl}/items/${cardId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${getToken()}`,
     },
-  }).then(handleServerResponse);
-};
+  }).then(checkRes);
+}
 
-export const updateProfileData = ({ name, avatar }) => {
-  const token = localStorage.getItem("jwt");
-  return fetch(`${baseUrl}/users/me`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({ name, avatar }),
-  }).then(handleServerResponse);
-};
-
-export const addCardLike = (itemId, token) => {
+function addCardLike(itemId) {
   return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${getToken()}`,
     },
-  }).then(handleServerResponse);
-};
+  }).then(checkRes);
+}
 
-export const removeCardLike = (itemId, token) => {
+function removeCardLike(itemId) {
   return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${getToken()}`,
     },
-  }).then(handleServerResponse);
-};
+  }).then(checkRes);
+}
+
+export { getItems, addItem, deleteCard, checkRes, addCardLike, removeCardLike };

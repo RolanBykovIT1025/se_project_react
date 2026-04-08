@@ -1,37 +1,38 @@
 .card {
-    width: 323px;
-    height: 326px;
-    position: relative;
-    display: flex;
-    justify-content: center;
+  width: 323px;
+  height: 326px;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .card__name {
-    position: absolute;
-    top: 20px;
-    margin: 0;
-    background-color: rgba(255, 255, 255, 1);
-    padding: 2px 12px;
-    font-family: "Cabinet Grotesk", sans-serif, bold;
-    font-size: 16px;
-    font-weight: 700;
-    color: rgba(0, 0, 0, 0.6);
-    border-radius: 4px;
+  position: absolute;
+  top: 20px;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 2px 12px;
+  font-family: "Cabinet Grotesk Bold";
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
 }
 
 .card__image {
-    width: 100%;
-    border-radius: 19px;
-    border: solid rgba(0, 0, 0, 0.3) 1px;
+  border: solid rgba(0, 0, 0, 0.3) 1px;
+  border-radius: 19px;
+  width: 100%;
 }
 
 .card__like-btn {
-    width: 18px;
-    height: 15px;
-    border: none;
-    position: absolute;
-    top: 25px;
-    display: flex;
-    right: 95px;
-    cursor: pointer;
+  width: 18px;
+  height: 15px;
+  border: none;
+  position: absolute;
+  top: 25px;
+  display: flex;
+  right: 95px;
+  cursor: pointer;
 }

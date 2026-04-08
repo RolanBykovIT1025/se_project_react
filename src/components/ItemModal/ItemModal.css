@@ -2,8 +2,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   bottom: 0;
+  right: 0;
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
@@ -11,15 +11,8 @@
   visibility: hidden;
 }
 
-.modal_opened {
+.modal_open {
   visibility: visible;
-}
-
-.modal__close {
-  background-image: url("../../assets/close-btn-dark.svg");
-  background-color: transparent;
-  border: none;
-  background-repeat: no-repeat;
 }
 
 .modal__content_type_image {
@@ -27,7 +20,7 @@
 }
 
 .modal__close_item {
-  /* import img using: background-image: url("") */
+  background-image: url("../../assets/closeBtnWhite.svg");
 }
 
 .modal__image {
@@ -37,9 +30,12 @@
 }
 
 .modal__footer {
-  padding-left: 32px;
-  font-weight: bold;
+  margin: 0 0 32px 32px;
+  font-family: "Cabinet Grotesk Bold";
   font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  display: flex;
 }
 
 .modal__caption {
@@ -50,16 +46,14 @@
   margin: 0;
 }
 
-.modal__delete {
+.modal__delete-btn {
   margin: 0 32px 0 auto;
   background: none;
   border: none;
-  font-family: "Cabinet Grotesk Bold", sans-serif;
+  font-family: "Cabinet Grotesk Bold";
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
   color: rgba(255, 77, 0, 1);
   padding: 0;
 }
-
-

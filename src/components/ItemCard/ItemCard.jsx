@@ -4,26 +4,25 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
-  const isLiked = item.likes.some((id) => id === currentUser.id);
+  const isLiked = item.likes.some((id) => id === currentUser?._id);
 
   const handleCardClick = () => {
     onCardClick(item);
   };
 
-  const handleLikeClick = (e) => {
+  const handleLike = (e) => {
     e.preventDefault();
     onCardLike({ id: item._id, isLiked });
   };
-
   return (
     <li className="card">
       <h2 className="card__name">{item.name}</h2>
       {isLoggedIn && (
         <img
-        onClick={handleLikeClick}
-        className="card__like-btn"
-        src={isLiked ? full : empty}
-        alt={isLiked ? "Unlike" : "Like"}
+          onClick={handleLike}
+          className="card__like-btn"
+          src={isLiked ? full : empty}
+          alt={isLiked ? "Unlike" : "Like"}
         />
       )}
       <img

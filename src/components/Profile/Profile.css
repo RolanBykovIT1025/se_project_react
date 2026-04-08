@@ -1,5 +1,7 @@
 .profile {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
 }
 
+.profile__sidebar {
+  margin-right: 116px;
+}

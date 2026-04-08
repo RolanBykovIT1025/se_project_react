@@ -1,78 +1,65 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import "../ModalWithForm/ModalWithForm.css";
 
-export default function LoginModal({
+const LoginModal = ({
+  closeActiveModal,
   isOpen,
-  onClose,
-  onLoginModalSubmit,
-  onSecondButtonClick,
-}) {
+  handleLogin,
+  handleRegisterClick,
+  setActiveModal,
+}) => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  useEffect(() => {
-    if (isOpen) {
-      setEmail("");
-      setPassword("");
-    }
-  }, [isOpen]);
-
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
+  const [password, setPassword] = useState("");
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLoginModalSubmit({ email, password });
-  };
-
-  const switchModal = () => {
-    onSecondButtonClick();
+    handleLogin(email, password);
   };
 
   return (
     <ModalWithForm
-      title="Login"
-      buttonText="Login"
-      SecondButtonText={"or Register"}
+      closeActiveModal={closeActiveModal}
+      firstBtnText="Login"
       isOpen={isOpen}
-      onClose={onClose}
+      titleText="Login"
       onSubmit={handleSubmit}
-      switchModal={switchModal}
-      onSecondButtonClick={onSecondButtonClick}
+      handleRegisterClick={handleRegisterClick}
+      secondBtnText=" or Sign Up"
+      secondBtnClick={() => setActiveModal("register")}
     >
-      <label htmlFor="login-email" className="modal__label">
-        Email*
+      <label htmlFor="email" className="modal__label">
+        Email
         <input
-          type="email"
-          name="email"
+          type="text"
           className="modal__input"
-          id="login-email"
-          placeholder="Enter your email"
+          id="email"
+          placeholder="Email"
           value={email}
           onChange={handleEmailChange}
-          required
-        />
+        ></input>
       </label>
-      <label htmlFor="login-password" className="modal__label">
-        Password*
+      <label htmlFor="password" className="modal__label">
+        Password
+        <input
+          type="password"
+          className="modal__input"
+          id="password"
+          placeholder="Password"
+          value={password}
+          onChange={handlePasswordChange}
+          autoComplete="current-password username"
+        ></input>
       </label>
-      <input
-        type="password"
-        name="password"
-        className="modal__input"
-        id="login-password"
-        placeholder="Enter your password"
-        minLength={8}
-        maxLength={16}
-        value={password}
-        onChange={handlePasswordChange}
-        required
-      />
     </ModalWithForm>
   );
-}
+};
+
+export default LoginModal;

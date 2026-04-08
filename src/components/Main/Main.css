@@ -1,3 +1,10 @@
+.cards__text {
+  font-family: "Cabinet Grotesk Bold";
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+}
+
 .cards__list {
   display: flex;
   flex-wrap: wrap;
@@ -5,16 +12,4 @@
   padding: 0;
   list-style-type: none;
   gap: 21px;
-}
-
-.cards__text {
-  font-weight: 700;
-  font-size: 20px;
-  font-family: "Cabinet Grotesk Bold", sans-serif;
-  line-height: 100%;
-}
-
-main {
-  flex: 1;
-  min-height: 85vh;
 }

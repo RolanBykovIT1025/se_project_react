@@ -1,32 +1,55 @@
-import { handleServerResponse } from "./api.js";
-import { baseUrl } from "./constants.js";
+import { checkRes } from "./api";
 
-export const getUserData = (token) => {
-  return fetch(`${baseUrl}/users/me`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
-    },
-  }).then(handleServerResponse);
-};
+const baseURL =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wtwr.developer.li"
+    : "http://localhost:3001";
 
-export const signup = ({ name, avatar, email, password }) => {
-  return fetch(`${baseUrl}/signup`, {
+export const register = ({ email, password, name, avatar }) => {
+  return fetch(`${baseURL}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, avatar, email, password }),
-  }).then(handleServerResponse);
+    body: JSON.stringify({ email, password, name, avatar }),
+  }).then(checkRes);
 };
 
-export const signin = ({ email, password }) => {
-  return fetch(`${baseUrl}/signin`, {
+export const login = ({ email, password }) => {
+  return fetch(`${baseURL}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(handleServerResponse);
+  }).then(checkRes);
+};
+
+export function getToken() {
+  return localStorage.getItem("jwt");
+}
+
+export function setToken(token) {
+  return localStorage.setItem("jwt", token);
+}
+
+export const checkToken = (token) => {
+  return fetch(`${baseURL}/users/me`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  }).then(checkRes);
+};
+
+export const editProfile = ({ name, avatar }) => {
+  return fetch(`${baseURL}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${getToken()}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  }).then(checkRes);
 };

@@ -21,7 +21,6 @@ function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
         <img
           onClick={handleLike}
           className="card__like-btn"
-          src={isLiked ? full : empty}
           alt={isLiked ? "Unlike" : "Like"}
         />
       )}

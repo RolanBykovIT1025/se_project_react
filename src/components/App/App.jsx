@@ -89,7 +89,7 @@ function App() {
     addItem({ name, imageUrl, weather })
       .then((res) => {
         setClothingItems((prevItems) => {
-          return [res, ...prevItems];
+          return [res.data, ...prevItems];
         });
         closeActiveModal();
       })
@@ -145,22 +145,20 @@ function App() {
       : removeCardLike(id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item)),
+              cards.map((item) => (item._id === id ? updatedCard.data : item)),
             );
           })
           .catch(console.error);
   };
 
-  const handleEditProfile = (data) => {
-    return editProfile(data)
-      .then((data) => {
+  const handleEditProfile = (formData) => {
+    return editProfile(formData)
+      .then((res) => {
         setCurrentUser({
           ...currentUser,
-          name: data.name,
-          avatar: data.avatar,
+          name: res.data.name,
+          avatar: res.data.avatar,
         });
-        console.log(clothingItems);
-        setIsLoggedIn(true);
         closeActiveModal();
       })
       .catch(console.error);

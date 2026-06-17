@@ -1,5 +1,5 @@
 import "./Header.css";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/Logo.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -27,7 +27,6 @@ function Header({
       <p className="header__date-location">
         {currentDate}, {weatherData.city}
       </p>
-
       <div className="header__user-container">
         <ToggleSwitch />
         {!isLoggedIn && (
@@ -59,14 +58,17 @@ function Header({
             </button>
             <Link to="/profile" className="header__link">
               <p className="header__username">{currentUser.name}</p>
+              {currentUser.avatar ? (
               <img
                 src={currentUser.avatar}
-                onError={(e) => {
-                  e.target.src = defaultAvatar;
-                }}
                 alt="User avatar"
                 className="header__avatar"
               />
+              ) : (
+                <span className="header__avatar header__avatar_placeholder">
+                  {currentUser.name?.charAt(0).toUpperCase()}
+                </span>
+              )}
             </Link>
           </>
         )}

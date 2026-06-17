@@ -38,7 +38,7 @@ const LoginModal = ({
       <label htmlFor="email" className="modal__label">
         Email
         <input
-          type="text"
+          type="email"
           className="modal__input"
           id="email"
           placeholder="Email"

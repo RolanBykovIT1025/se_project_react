@@ -1,7 +1,7 @@
 import "./SideBar.css";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { defaultAvatar } from "../../assets/avatar.svg";
+import defaultAvatar from "../../assets/avatar.svg";
 
 function SideBar({ onEdit, onLogout }) {
   const currentUser = useContext(CurrentUserContext);
@@ -9,21 +9,10 @@ function SideBar({ onEdit, onLogout }) {
   return (
     <>
       <div className="sidebar__user">
-        {currentUser.avatar ? (
-          <img
-            src={currentUser.avatar}
-            alt="User avatar"
-            className="header__avatar"
-          />
-        ) : (
-          <span className="header__avatar header__avatar_placeholder">
-            {currentUser.name?.charAt(0).toUpperCase()}
-          </span>
-        )}
         <img
           className="sidebar__avatar"
           src={currentUser.avatar || defaultAvatar}
-          alt="user avatar"
+          alt="User avatar"
         />
         <p className="sidebar__username">{currentUser.name}</p>
       </div>

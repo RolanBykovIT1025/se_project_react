@@ -1,6 +1,8 @@
 import "./ItemCard.css";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import heartFilled from "../../assets/heartFilled.svg";
+import heartOutline from "../../assets/heartOutline.svg";
 
 function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
@@ -21,6 +23,7 @@ function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
         <img
           onClick={handleLike}
           className="card__like-btn"
+          src={isLiked ? heartFilled : heartOutline}
           alt={isLiked ? "Unlike" : "Like"}
         />
       )}

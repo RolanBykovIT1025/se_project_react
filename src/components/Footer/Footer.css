@@ -3,21 +3,18 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  position: relative;
-  left: 0;
-  bottom: 0;
-  z-index: 0;
-  margin: 0 40px;
+  margin-top: auto;
 }
 
 .footer__content {
-  width: 1360px;
-  height: 20px;
-  margin: 85px 40px 24px 0;
+  max-width: 1360px;
+  width: 100%;
+  padding: 0 40px;
+  margin: 85px 0 24px;
   display: flex;
   justify-content: space-between;
   font-family: "Cabinet Grotesk Medium";
-  font-size: 16pxpx;
+  font-size: 16px;
   line-height: 20px;
   font-weight: 500;
 }

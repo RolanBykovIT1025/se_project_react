@@ -17,13 +17,12 @@
   font-family: "Cabinet Grotesk Bold";
   font-size: 20px;
   font-weight: 700;
-  width: 88px;
-  height: 25px;
   color: rgba(0, 0, 0, 0.6);
   background: none;
   border: none;
   padding: 0;
   margin-left: 20px;
+  white-space: nowrap;
 }
 
 .clothes-section__items {

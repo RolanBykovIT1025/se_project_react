@@ -44,6 +44,9 @@
 - Modern web browser
 - Internet connection
 
+### Video
+https://drive.google.com/file/d/1h25gz6AAuhsz_KxjQxXYX0X0TxFH9sGm/view?usp=sharing
+
 ### GitHub 
 "https://RolanBykovIT1025.github.io/se_project_react"
 

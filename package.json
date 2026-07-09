@@ -1,12 +1,12 @@
 {
   "name": "vite-project",
-  "homepage": "https://RolanBykovIT1025.github.io/se_project_react/",
+  "homepage": "https://wtwr-dev.twilightparadox.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "npm run build && scp -r ./dist/* rbykov30@34.83.89.0:/var/www/frontend",
     "dev": "vite --open",
     "build": "vite build",
     "lint": "eslint .",

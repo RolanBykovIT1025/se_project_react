@@ -1,6 +1,6 @@
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://api.wtwr.developer.li"
+    ? "https://api.wtwr-dev.twilightparadox.com"
     : "http://localhost:3001";
 import { getToken } from "./auth";
 

@@ -2,7 +2,7 @@ import { checkRes } from "./api";
 
 const baseURL =
   process.env.NODE_ENV === "production"
-    ? "https://api.wtwr.developer.li"
+    ? "https://api.wtwr-dev.twilightparadox.com"
     : "http://localhost:3001";
 
 export const register = ({ email, password, name, avatar }) => {
